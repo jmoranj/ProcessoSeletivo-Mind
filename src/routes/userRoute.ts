@@ -1,5 +1,9 @@
-import { Router } from 'express'
+import { Router } from 'express';
+import { registerUser, loginUser } from '../controllers/userController';
 
-export const userRoute = Router()
+const userRoutes = Router();
 
-userRoute.get('/users', (req, res) => res.send('API'))
+userRoutes.post('/register', registerUser);
+userRoutes.post('/login', loginUser);
+
+export default userRoutes;

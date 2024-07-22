@@ -1,5 +1,11 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { createTransaction, getTransactions, updateTransaction, deleteTransaction } from '../controllers/transactionController';
 
-export const transactionRoute = Router()
+const transactionRoutes = Router();
 
-transactionRoute.get('/transactions', (req,res) => res.send('Sucesso'))
+transactionRoutes.post('/', createTransaction);
+transactionRoutes.get('/', getTransactions);
+transactionRoutes.put('/:id', updateTransaction);
+transactionRoutes.delete('/:id', deleteTransaction);
+
+export default transactionRoutes;
