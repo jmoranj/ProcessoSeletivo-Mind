@@ -1,7 +1,10 @@
 import { Router } from 'express';
 import { createTransaction, getTransactions, updateTransaction, deleteTransaction } from '../controllers/transactionController';
+import { auth } from '../middlewares/auth';
 
 const transactionRoutes = Router();
+
+transactionRoutes.use(auth);
 
 transactionRoutes.post('/', createTransaction);
 transactionRoutes.get('/', getTransactions);

@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import { CustomRequest } from '../middlewares/auth';
 
 const prisma = new PrismaClient();
 
 export async function createTransaction(req: Request, res: Response) {
-    const { description, value, date, category, type, userId } = req.body;
-    
-    if (!description || !value || !date || !category || !type || !userId) {
+    const { description, value, date, category, type } = req.body;
+
+    const { token }: any = req as CustomRequest;
+
+    if (!description || !value || !date || !category || !type) {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
@@ -15,14 +18,15 @@ export async function createTransaction(req: Request, res: Response) {
             data: {
                 description,
                 value: parseFloat(value),
-                date: new Date(date),
+                date: new Date,
                 category,
                 type,
-                user: { connect: { id: Number(userId) } }
+                user: { connect: { id: token.id } }
             }
         });
         res.json(transaction);
     } catch (error) {
+        console.log(error);
         res.status(400).json({ error: (error as Error).message });
     }
 }
