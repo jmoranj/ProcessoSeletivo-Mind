@@ -6,7 +6,6 @@ const prisma = new PrismaClient();
 
 export async function createTransaction(req: Request, res: Response) {
     const { description, value, date, category, type } = req.body;
-
     const { token }: any = req as CustomRequest;
 
     if (!description || !value || !date || !category || !type) {
@@ -18,7 +17,7 @@ export async function createTransaction(req: Request, res: Response) {
             data: {
                 description,
                 value: parseFloat(value),
-                date: new Date,
+                date, 
                 category,
                 type,
                 user: { connect: { id: token.id } }
@@ -51,7 +50,13 @@ export async function updateTransaction(req: Request, res: Response) {
     try {
         const transaction = await prisma.transaction.update({
             where: { id: Number(id) },
-            data: { description, value: parseFloat(value), date: new Date(date), category, type }
+            data: { 
+                description,
+                value: parseFloat(value),
+                date, 
+                category,
+                type
+            }
         });
         res.json(transaction);
     } catch (error) {
