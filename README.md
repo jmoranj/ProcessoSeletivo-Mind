@@ -1,6 +1,6 @@
 #MANUAL DE INSTRUÇÃO
 
-LIGAR BACK: 
+LIGAR BACK(NPM RUN): 
  {
   "start": "tsx src/server.ts",
   "start:dev": "tsx watch src/server.ts",
