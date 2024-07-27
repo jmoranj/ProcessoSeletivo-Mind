@@ -1,4 +1,3 @@
-// src/middlewares/auth.ts
 import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 
@@ -17,7 +16,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
 
     console.log('Token received:', token);
 
-    const decoded = jwt.verify(token, 'your_jwt_secret');
+    const decoded = jwt.verify(token, 'your_jwt_secret') as JwtPayload;
 
     console.log('Token decoded:', decoded);
 

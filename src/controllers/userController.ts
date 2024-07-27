@@ -37,7 +37,7 @@ export async function loginUser(req: Request, res: Response) {
         return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user.id }, 'your_jwt_secret');
+    const token = jwt.sign({ id: user.id }, 'your_jwt_secret', { expiresIn: "1h" });
     res.json({ token });
 }
 
@@ -45,13 +45,12 @@ export async function validateJwt(req: Request, res: Response) {
     try {
         const { token } = req.body;
 
-        const isValidToken = jwt.verify(token, 'your_jwt_secret')
-
-        if (!isValidToken) return res.status(401).json({ message: 'Invalid credentials' });
-
-        res.json({ token });
+        const decoded = jwt.verify(token, 'your_jwt_secret');
+        res.json({ token, decoded });
+        
     } catch (error) {
-        console.log(error)
+        console.log(error);
         return res.status(401).json({ message: 'Invalid credentials' });
     }
 }
+
