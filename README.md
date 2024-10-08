@@ -12,7 +12,7 @@ ________________________________________________
 
 
 TODAS AS DEPENDENCIAS: 
-
+´´´
 "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
@@ -37,4 +37,4 @@ TODAS AS DEPENDENCIAS:
     "prisma": "^5.17.0",
     "zod": "^3.23.8"
   },
-    
+   ´´´
