@@ -16,7 +16,7 @@ CREATE TABLE `Transaction` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `description` VARCHAR(191) NOT NULL,
     `value` DOUBLE NOT NULL,
-    `date` DATETIME(3) NOT NULL,
+    `date` VARCHAR(191) NOT NULL,
     `category` VARCHAR(191) NOT NULL,
     `type` VARCHAR(191) NOT NULL,
     `userId` INTEGER NOT NULL,
