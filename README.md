@@ -1,40 +1,28 @@
 #MANUAL DE INSTRUÇÃO
 
-LIGAR BACK(NPM RUN): 
- {
-  "start": "tsx src/server.ts",
-  "start:dev": "tsx watch src/server.ts",
-  "build": "tsup src/routes",
-  "test": "vitest"
-};
+Primeiramente rode o seguinte comando:
 
-________________________________________________
+`npm i @types/node`
+
+#DUMP DO BANCO
+
+Abra o Terminal: Certifique-se de que o MySQL está instalado e funcionando no seu terminal.
+
+Comando para Importar o Dump: Use o comando abaixo, substituindo <nome_do_banco> pelo nome do seu banco de dados e <caminho_para_o_dump.sql> pelo caminho do seu arquivo de dump:
+
+`mysql -u seu_usuario -p <nome_do_banco> < <caminho_para_o_dump.sql>`
+
+Após executar o comando, o MySQL pedirá sua senha. Digite a senha do usuário MySQL que você configurou.
+
+Se o comando foi executado sem erros, o banco de dados será preenchido com os dados do arquivo dump.
+
+Se você ainda não tiver criado o banco de dados onde deseja restaurar os dados, faça isso antes com o comando:
+
+CREATE DATABASE <nome_do_banco>;
 
 
-TODAS AS DEPENDENCIAS: 
-´´´
-"devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/express-fileupload": "^1.5.0",
-    "@types/jsonwebtoken": "^9.0.6",
-    "ts-node-dev": "^2.0.0",
-    "tsup": "^8.2.1",
-    "tsx": "^4.16.2",
-    "typescript": "^5.5.3",
-    "vitest": "^2.0.3"
-  },
-  "dependencies": {
-    "@prisma/client": "^5.17.0",
-    "@web/dev-server": "^0.4.6",
-    "bcrypt": "^5.1.1",
-    "cors": "^2.8.5",
-    "date-fns": "^3.6.0",
-    "express": "^4.19.2",
-    "express-fileupload": "^1.5.1",
-    "jsonwebtoken": "^9.0.2",
-    "prisma": "^5.17.0",
-    "zod": "^3.23.8"
-  },
-   ´´´
+#RODAR
+
+`npm run start:dev`
+
+
