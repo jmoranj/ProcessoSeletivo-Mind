@@ -72,7 +72,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (1,'Playstation 6',10000,'2024-11-03T01:52:35.296Z','Saída','Entrada',1),(2,'Pagamento',2000,'2024-11-03T01:52:50.278Z','Entrada','Entrada',1),(3,'Pagamento mensal - Novembro',100000,'2024-11-03T01:55:14.617Z','Saída','Entrada',2),(4,'Faturamento mensal - Novembro',200000,'2024-11-03T01:55:34.762Z','Entrada','Entrada',2);
+INSERT INTO `transaction` VALUES (1,'Playstation 6',1,'2024-11-03T01:52:35.296Z','Saída','Entrada',1),(2,'Pagamento',2000,'2024-11-03T01:52:50.278Z','Entrada','Entrada',1),(3,'Novembro',100000,'2024-11-03T01:55:14.617Z','Saída','Entrada',2),(4,'Novembro',200000,'2024-11-03T01:55:34.762Z','Entrada','Entrada',2);
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,4 +114,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-02 23:06:07
+-- Dump completed on 2024-11-03  0:01:44
