@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
-import { CustomRequest } from '../middlewares/auth'; 
+import { CustomRequest } from '../middlewares/auth';
 import { JwtPayload } from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
@@ -23,7 +23,7 @@ export async function createTransaction(req: Request, res: Response) {
         date,
         category,
         type,
-        userId: decoded.id  
+        userId: decoded.id
       }
     });
     res.json(transaction);
@@ -34,7 +34,7 @@ export async function createTransaction(req: Request, res: Response) {
 }
 
 export async function getTransactions(req: Request, res: Response) {
-  const { token } = req as CustomRequest;  
+  const { token } = req as CustomRequest;
 
   if (!token) {
     return res.status(401).json({ error: 'Unauthorized' });
