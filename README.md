@@ -1,28 +1,60 @@
-#MANUAL DE INSTRUÇÃO
+# Tutorial Base Project Backend
 
-Primeiramente rode o seguinte comando:
+## Requisitos
+- Node.js instalado
+- MySQL instalado e configurado
+- NPM ou Yarn
 
-`npm i @types/node`
+## Passo a Passo
 
-#DUMP DO BANCO
+1. Instale as dependências necessárias:
+```bash
+npm install
 
-Abra o Terminal: Certifique-se de que o MySQL está instalado e funcionando no seu terminal.
+Copy
 
-Comando para Importar o Dump: Use o comando abaixo, substituindo <nome_do_banco> pelo nome do seu banco de dados e <caminho_para_o_dump.sql> pelo caminho do seu arquivo de dump:
+Apply
 
-`mysql -u seu_usuario -p <nome_do_banco> < <caminho_para_o_dump.sql>`
+README.md
+Configure o Banco de Dados:
+Crie um banco de dados MySQL
+Configure as credenciais no arquivo .env (use o .env.example como base)
+Execute as migrações do Prisma:
+npx prisma migrate dev
 
-Após executar o comando, o MySQL pedirá sua senha. Digite a senha do usuário MySQL que você configurou.
+Copy
 
-Se o comando foi executado sem erros, o banco de dados será preenchido com os dados do arquivo dump.
+Execute
 
-Se você ainda não tiver criado o banco de dados onde deseja restaurar os dados, faça isso antes com o comando:
+Inicie o servidor em modo desenvolvimento:
+npm run start:dev
 
-CREATE DATABASE <nome_do_banco>;
+Copy
 
+Execute
 
-#RODAR
+Estrutura do Projeto
+/src/routes - Rotas da API
+/src/controllers - Controladores
+/src/middlewares - Middlewares (autenticação, upload de arquivos)
+/src/schemas - Schemas de validação
+Funcionalidades Principais
+Autenticação JWT
+Upload de imagens (limite de 20MB)
+Rotas para usuários e transações
+Validação de dados com Zod
+Rotas Disponíveis
+Usuários: /users
+Transações: /transactions
+Uploads
+O projeto suporta upload de imagens em duas categorias:
 
-`npm run start:dev`
+Fotos de usuário
+Imagens de transações
+Os arquivos são salvos na pasta uploads do projeto.
 
-
+Observações
+O servidor roda na porta 3000 por padrão
+CORS configurado para http://localhost:3000
+Suporta apenas upload de arquivos de imagem
+```
