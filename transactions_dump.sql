@@ -41,7 +41,7 @@ CREATE TABLE `_prisma_migrations` (
 
 LOCK TABLES `_prisma_migrations` WRITE;
 /*!40000 ALTER TABLE `_prisma_migrations` DISABLE KEYS */;
-INSERT INTO `_prisma_migrations` VALUES ('3eb3f1af-499c-4103-a004-c19de3e18bc6','5dc060f30cfa83ec16a6ec24088083ec9307597163a7aef9379a1fb6b718b786','2024-11-03 01:50:23.105','20241103015023_dump_migration',NULL,NULL,'2024-11-03 01:50:23.024',1);
+INSERT INTO `_prisma_migrations` VALUES ('c62fb961-6d51-4ad5-83d0-a0181020d4ba','72361dd4294c7afa4f21140ffcc47063b67ad0710c260d837ee5ba5ddbff3027','2024-11-04 05:37:30.097','20241104053730_agora_foi',NULL,NULL,'2024-11-04 05:37:30.030',1);
 /*!40000 ALTER TABLE `_prisma_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,14 +56,15 @@ CREATE TABLE `transaction` (
   `id` int NOT NULL AUTO_INCREMENT,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `value` double NOT NULL,
+  `quantity` int NOT NULL,
   `date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `imagePath` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `userId` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Transaction_userId_fkey` (`userId`),
   CONSTRAINT `Transaction_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +73,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (1,'Playstation 6',1,'2024-11-03T01:52:35.296Z','Saída','Entrada',1),(2,'Pagamento',2000,'2024-11-03T01:52:50.278Z','Entrada','Entrada',1),(3,'Novembro',100000,'2024-11-03T01:55:14.617Z','Saída','Entrada',2),(4,'Novembro',200000,'2024-11-03T01:55:34.762Z','Entrada','Entrada',2);
+INSERT INTO `transaction` VALUES (1,'Rato bonzinho',20,4,'2024-11-04T05:39:10.315Z','Saída','/uploads/transactions/image-1730698750320-550712562.jpeg',1);
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +93,7 @@ CREATE TABLE `user` (
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `User_email_key` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +102,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'JOÃO GUSTAVO MORANDIM',19,'/uploads/photo-1730598708956-700533425.jpeg','morandim.joao@gmail.com','$2b$10$rzYm3zO/5eeTswLWlGe2yOmbmI/REgGrU1AYUWmrpt/7saymYA2P2'),(2,'MIND GROUP - TEST',18,'/uploads/photo-1730598876881-697648987.jpeg','mindgroup@gmail.com','$2b$10$vxuci13CRh47pk3tEj6n9.kaZoKzjnrSJryu/g0yFFpkKel.KES1S');
+INSERT INTO `user` VALUES (1,'JOSELITO',20,'/uploads/users/photo-1730698694824-208916482.jpeg','joselito@gmail.com','$2b$10$m0thRt7zP85kkx4w/EO8PuY83lVSCBUxWAOjfmf5dHBaJvUjSCmBm');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +115,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-03  0:01:44
+-- Dump completed on 2024-11-04  2:43:02

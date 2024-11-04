@@ -1,15 +1,15 @@
 import { Router } from 'express';
-import { createTransaction, getTransactions, updateTransaction, deleteTransaction } from '../controllers/transactionController';
+import { createTransaction, deleteTransaction, getTransactions, updateTransaction,  } from '../controllers/transactionController';
 import { auth } from '../middlewares/auth';
+import { upload } from '../middlewares/uploadFile';
 
 const transactionRoutes = Router();
 
 transactionRoutes.use(auth);
 
-transactionRoutes.post('/', createTransaction);
+transactionRoutes.post('/', upload.single('image'), createTransaction);
 transactionRoutes.get('/', getTransactions);
-transactionRoutes.put('/:id', updateTransaction);
+transactionRoutes.put('/:id', upload.single('image'), updateTransaction);
 transactionRoutes.delete('/:id', deleteTransaction);
 
 export default transactionRoutes;
-

@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { ZodError } from 'zod';
-import { userDbSchema, userRegistrationSchema } from '../schemas';
+import { userDbSchema, userRegistrationSchema } from '../schemas/userSchemas';
 
 const prisma = new PrismaClient();
 
@@ -30,7 +30,7 @@ export async function registerUser(req: Request, res: Response) {
     }
 
     // Cria o path do arquivo
-    const photoPath = `/uploads/${req.file.filename}`;
+    const photoPath = `/uploads/users/${req.file.filename}`;
 
     // Valida o restante dos dados do usuário
     const validatedUserData = userDbSchema.parse({
