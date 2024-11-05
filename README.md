@@ -8,13 +8,11 @@
 ## Passo a Passo
 
 1. Instale as dependências necessárias:
-```bash
+
+```
 npm install
 
-Copy
-
-Apply
-
+```
 README.md
 Configure o Banco de Dados:
 Crie um banco de dados MySQL
@@ -22,16 +20,13 @@ Configure as credenciais no arquivo .env (use o .env.example como base)
 Execute as migrações do Prisma:
 npx prisma migrate dev
 
-Copy
-
-Execute
 
 Inicie o servidor em modo desenvolvimento:
+
+```
 npm run start:dev
 
-Copy
-
-Execute
+```
 
 Estrutura do Projeto
 /src/routes - Rotas da API
@@ -54,7 +49,6 @@ Imagens de transações
 Os arquivos são salvos na pasta uploads do projeto.
 
 Observações
-O servidor roda na porta 3000 por padrão
-CORS configurado para http://localhost:3000
+O servidor roda na porta 4000 por padrão
+CORS configurado para http://localhost:4000
 Suporta apenas upload de arquivos de imagem
-```
